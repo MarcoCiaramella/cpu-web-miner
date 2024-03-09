@@ -11,17 +11,19 @@ export const yescryptR16 = "yescryptR16";
 export const yescryptR32 = "yescryptR32";
 export const minotaurx = "minotaurx";
 
+
+
+
 /**
  * Starts mining.
  * @param {string} algo can be yespower, yespowerR16, yescrypt, yescryptR8, yescryptR16, yescryptR32, minotaurx
- * @param {object} stratum
- * @param {object} options
+ * @param {object} stratum {server: <server>, port: <port>, worker: <worker>, password: <password>}
+ * @param {boolean} log prints logs
  */
-export function mine(algo, stratum, options) {
+export function mine(algo, stratum, log) {
 
     if (!window.Worker) throw "Web Worker not supported";
 
-    const log = options ? options.log : false;
     const NUM_WORKERS = 1;
     let workers = [];
 
