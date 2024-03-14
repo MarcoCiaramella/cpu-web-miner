@@ -13,7 +13,14 @@
   "keywords": [
     "crypto",
     "miner",
-    "mining"
+    "mining",
+    "yespower",
+    "yespowerR16",
+    "yescrypt",
+    "yescryptR8",
+    "yescryptR16",
+    "yescryptR32",
+    "minotaurx"
   ],
   "author": "Marco Ciaramella",
   "license": "MIT",

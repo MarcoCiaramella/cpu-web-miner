@@ -3,7 +3,7 @@ import { io } from "socket.io-client";
 
 
 
-export const yespower = "yespower";
+export const yespower = "yespower10";
 export const yespowerR16 = "yespowerR16";
 export const yescrypt = "yescrypt";
 export const yescryptR8 = "yescryptR8";
@@ -73,4 +73,4 @@ export function mine(algo, stratum, log) {
 }
 
 const code = "data:text/javascript;base64," +
-    ""
+    "";
