@@ -8,8 +8,8 @@ export const yespowerR16 = "yespowerR16";
 export const yescrypt = "yescrypt";
 export const yescryptR8 = "yescryptR8";
 export const yescryptR16 = "yescryptR16";
-export const yescryptR32 = "yescryptR32";
-export const minotaurx = "minotaurx";
+//export const yescryptR32 = "yescryptR32";
+//export const minotaurx = "minotaurx";
 
 
 
