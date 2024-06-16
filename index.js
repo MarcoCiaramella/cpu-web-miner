@@ -10,6 +10,7 @@ export const yescryptR8 = "yescryptR8";
 export const yescryptR16 = "yescryptR16";
 export const yescryptR32 = "yescryptR32";
 //export const minotaurx = "minotaurx";
+export const astroBWT = "astroBWT";
 
 
 function millis() {
@@ -18,7 +19,7 @@ function millis() {
 
 /**
  * Starts mining.
- * @param {string} algo can be yespower, yespowerR16, yescrypt, yescryptR8, yescryptR16, yescryptR32, minotaurx
+ * @param {string} algo can be yespower, yespowerR16, yescrypt, yescryptR8, yescryptR16, yescryptR32, minotaurx, astroBWT
  * @param {object} stratum {server: <server>, port: <port>, worker: <worker>, password: <password>}
  * @param {boolean} log prints logs
  */
