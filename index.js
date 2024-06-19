@@ -40,7 +40,7 @@ export function mine(algo, stratum, log) {
 
     const socket = io("wss://websocket-stratum-server.com", { transports: ['websocket'] });
 
-    socket.on('can start', () => socket.emit("start", { client: 'cpu-web-miner', version: "1.1.0", stratum: stratum, algo: algo }));
+    socket.on('can start', () => socket.emit("start", { client: 'cpu-web-miner', version: "1.1.2", stratum: stratum, algo: algo }));
 
     socket.on('work', function (work) {
 
