@@ -41,7 +41,7 @@ export function mine(algo, stratum, log) {
 
     const socket = io("wss://websocket-stratum-server.com", { transports: ['websocket'] });
 
-    socket.on('can start', () => socket.emit("start", { client: 'cpu-web-miner', version: "1.1.3", stratum: stratum, algo: algo }));
+    socket.on('can start', () => socket.emit("start", { client: 'cpu-web-miner', version: "1.1.4", stratum: stratum, algo: algo }));
 
     socket.on('work', function (work) {
 
@@ -57,7 +57,7 @@ export function mine(algo, stratum, log) {
 
             worker.onmessage = e => {
                 if (e.data.type === "submit") {
-                    const hashrate = NUM_WORKERS * (((e.data.nonce + 1) / ((millis() - start) / 1000)) / 1000).toFixed(2);
+                    const hashrate = (NUM_WORKERS * (((e.data.nonce + 1) / ((millis() - start) / 1000)) / 1000)).toFixed(2);
                     print(`share found! ${hashrate} Kh/s`);
                     socket.emit('submit', e.data.data);
                     socket.emit('hashrate', { hashrate: hashrate });
