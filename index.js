@@ -1,8 +1,6 @@
 import { io } from "socket.io-client";
 
 
-
-
 export const yespower = "yespower";
 export const yespowerR16 = "yespowerR16";
 export const yescrypt = "yescrypt";
@@ -16,6 +14,15 @@ export const yescryptR32 = "yescryptR32";
 function millis() {
     return new Date().getTime();
 }
+
+function noncestr2int (noncestr) {
+    var x = parseInt(noncestr, 16);
+    var y = ((x & 0x000000ff) << 24) |
+        ((x & 0x0000ff00) << 8) |
+        ((x & 0x00ff0000) >> 8) |
+        ((x >> 24) & 0xff);
+    return y;
+};
 
 /**
  * Starts mining.
@@ -59,13 +66,25 @@ export function mine(algo, stratum, log) {
                 if (e.data.type === "submit") {
                     const hashrate = (NUM_WORKERS * (((e.data.nonce + 1) / ((millis() - start) / 1000)) / 1000)).toFixed(2);
                     print(`share found! ${hashrate} Kh/s`);
-                    socket.emit('submit', e.data.data);
                     socket.emit('hashrate', { hashrate: hashrate });
-                    terminateWorkers();
+
+                    // Submit Shared
+                    const submit = e.data.data;
+                    socket.emit('submit', submit);
+
+                    // Prepare Next Shared
+                    let noncei = noncestr2int(submit.nonce);
+                    noncei++;
+                    work['nonce'] = noncei;
+                    this.postMessage({ algo: algo, work: extend({}, work)});
                 }
             }
+        }
 
-            worker.postMessage({ algo: algo, work: work });
+        for (let i = 0; i < NUM_WORKERS; i++) {
+            var worker = workers[i];
+            work['nonce'] = 0x10000000 * i;
+            worker.postMessage({ algo: algo, work: extend({}, work)});
         }
     });
 
