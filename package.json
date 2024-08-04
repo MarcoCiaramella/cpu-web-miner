@@ -33,6 +33,7 @@
   },
   "homepage": "https://github.com/MarcoCiaramella/cpu-web-miner#readme",
   "dependencies": {
+    "@marco_ciaramella/cpu-web-miner": "file:",
     "socket.io-client": "^4.7.4"
   }
 }
