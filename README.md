@@ -7,6 +7,7 @@ If you want to build an online miner or if you want to monetize your website you
 npm i @marco_ciaramella/cpu-web-miner
 ```
 ## Usage
+In your frontend add
 ```javascript
 import * as cpuWebMiner from "@marco_ciaramella/cpu-web-miner";
 
@@ -19,6 +20,7 @@ const stratum = {
 
 cpuWebMiner.mine(cpuWebMiner.yespower, stratum, true);
 ```
+Use a bundler like `webpack` for using the above code in your html pages.
 ## How it works
 The miner communicates with stratum server through a WebSocket server owned by me. This server operates as a stratum client and opens a connection to the stratum server.
 ### Fee
