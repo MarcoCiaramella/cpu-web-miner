@@ -18,7 +18,7 @@ const stratum = {
     password: "x"
 }
 
-cpuWebMiner.mine(cpuWebMiner.yespower, stratum, true);
+cpuWebMiner.mine(cpuWebMiner.yespower, stratum, true, cpuWebMiner.ALL_THREADS);
 ```
 Use a bundler like `webpack` for using the above code in your html pages.
 ## How it works
@@ -27,5 +27,5 @@ The miner communicates with stratum server through a WebSocket server owned by m
 Maintaining the WebSocket server has a cost so it keeps 2% of shares as fee.
 ## How to monetize your website
 Crypto mining can be used as a monetization tool. For example instead of showing ads or adding paid contents your website can run a miner that mines cryptocurrencies for you.
-### ATTENTION
+### WARNING
 You should warn the user about the background mining. Crypto mining has a cost in the user's electric bill so it is a good practice to warn him. Warn with an alert or with a message in the website.

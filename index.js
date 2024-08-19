@@ -12,6 +12,8 @@ export const yescryptR32 = "yescryptR32";
 export const minotaurx = "minotaurx";
 //export const verushash = "verushash";
 
+export const ALL_THREADS = 0;
+
 
 function millis() {
     return new Date().getTime();
@@ -22,7 +24,7 @@ function millis() {
  * @param {string} algo can be yespower, yespowerR16, yescrypt, yescryptR8, yescryptR16, yescryptR32, minotaurx
  * @param {object} stratum {server: <server>, port: <port>, worker: <worker>, password: <password>}
  * @param {boolean} log prints logs
- * @param {number|undefined} nthreads optional. Number of threads used by miner. It will be the minimum of this value and the number of threads supported by the hardware
+ * @param {number=} nthreads optional. Number of threads used by miner. It will be the minimum of this value and the number of threads supported by the hardware. If 0, null or undefined it uses all hardware threads
  */
 export function mine(algo, stratum, log, nthreads) {
 
@@ -31,6 +33,8 @@ export function mine(algo, stratum, log, nthreads) {
     }
 
     if (!window.Worker) throw "Web Worker not supported";
+    nthreads = nthreads ? nthreads : window.navigator.hardwareConcurrency;
+    if (nthreads < 0) throw 'nthreads must be positive';
 
     const NUM_WORKERS = Math.min(nthreads, window.navigator.hardwareConcurrency);
     print('num threads:', NUM_WORKERS);
