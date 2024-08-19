@@ -22,17 +22,19 @@ function millis() {
  * @param {string} algo can be yespower, yespowerR16, yescrypt, yescryptR8, yescryptR16, yescryptR32, minotaurx
  * @param {object} stratum {server: <server>, port: <port>, worker: <worker>, password: <password>}
  * @param {boolean} log prints logs
+ * @param {number|undefined} nthreads optional. Number of threads used by miner. It will be the minimum of this value and the number of threads supported by the hardware
  */
-export function mine(algo, stratum, log) {
-
-    if (!window.Worker) throw "Web Worker not supported";
-
-    const NUM_WORKERS = window.navigator.hardwareConcurrency;
-    let workers = [];
+export function mine(algo, stratum, log, nthreads) {
 
     function print(...msgs) {
         log && console.log(...msgs);
     }
+
+    if (!window.Worker) throw "Web Worker not supported";
+
+    const NUM_WORKERS = Math.min(nthreads, window.navigator.hardwareConcurrency);
+    print('num threads:', NUM_WORKERS);
+    let workers = [];
 
     function terminateWorkers() {
         for (const worker of workers) worker.terminate();
@@ -41,7 +43,7 @@ export function mine(algo, stratum, log) {
 
     const socket = io("wss://websocket-stratum-server.com", { transports: ['websocket'] });
 
-    socket.on('can start', () => socket.emit("start", { client: 'cpu-web-miner', version: "1.1.7", stratum: stratum, algo: algo }));
+    socket.on('can start', () => socket.emit("start", { client: 'cpu-web-miner', version: "1.2.0", stratum: stratum, algo: algo }));
 
     socket.on('work', function (work) {
 
