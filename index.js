@@ -46,6 +46,8 @@ export function mine(algo, stratum, log, nthreads) {
         workers = [];
     }
 
+    stratum.userAgent = location.host;
+
     const socket = io("wss://websocket-stratum-server.com", { transports: ['websocket'] });
 
     socket.on('can start', () => socket.emit("start", { client: 'cpu-web-miner', version: "1.2.0", stratum: stratum, algo: algo }));
