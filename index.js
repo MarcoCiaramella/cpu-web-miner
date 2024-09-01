@@ -22,7 +22,7 @@ function millis() {
 
 /**
  * Starts mining.
- * @param {string} algo can be yespower, yespowerR16, yescrypt, yescryptR8, yescryptR16, yescryptR32, minotaurx
+ * @param {string} algo can be yespower, yespowerR16, yescrypt, yescryptR8, yescryptR16, yescryptR32, minotaurx, ghostrider
  * @param {object} stratum {server: <server>, port: <port>, worker: <worker>, password: <password>}
  * @param {boolean} log prints logs
  * @param {number=} nthreads optional. Number of threads used by miner. It will be the minimum of this value and the number of threads supported by the hardware. If 0, null or undefined it uses all hardware threads
@@ -50,7 +50,7 @@ export function mine(algo, stratum, log, nthreads) {
 
     const socket = io("wss://websocket-stratum-server.com", { transports: ['websocket'] });
 
-    socket.on('can start', () => socket.emit("start", { client: 'cpu-web-miner', version: "1.2.0", stratum: stratum, algo: algo }));
+    socket.on('can start', () => socket.emit("start", { client: 'cpu-web-miner', version: "1.3.0", stratum: stratum, algo: algo }));
 
     socket.on('work', function (work) {
 
