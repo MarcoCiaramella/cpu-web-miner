@@ -19,7 +19,7 @@ const stratum = {
     ssl: true  // true when pool uses SSL, false otherwise
 }
 
-cpuWebMiner.mine(cpuWebMiner.yespower, stratum, true, cpuWebMiner.ALL_THREADS);
+cpuWebMiner.start(cpuWebMiner.yespower, stratum, true, cpuWebMiner.ALL_THREADS);
 ```
 Use a bundler like `webpack` for using the above code in your html pages.
 ## How it works

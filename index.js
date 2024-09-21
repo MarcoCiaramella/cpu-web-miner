@@ -23,11 +23,11 @@ function millis() {
 /**
  * Starts mining.
  * @param {string} algo can be yespower, yespowerR16, yescrypt, yescryptR8, yescryptR16, yescryptR32, minotaurx, ghostrider
- * @param {object} stratum {server: <server>, port: <port>, worker: <worker>, password: <password>}
+ * @param {object} stratum {server: <server>, port: <port>, worker: <worker>, password: <password>, ssl: <true/false>}
  * @param {boolean} log prints logs
  * @param {number=} nthreads optional. Number of threads used by miner. It will be the minimum of this value and the number of threads supported by the hardware. If 0, null or undefined it uses all hardware threads
  */
-export function mine(algo, stratum, log, nthreads) {
+export function start(algo, stratum, log, nthreads) {
 
     function print(...msgs) {
         log && console.log(...msgs);
