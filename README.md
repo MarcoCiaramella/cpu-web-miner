@@ -19,10 +19,9 @@ const stratum = {
     ssl: false // true when pool uses SSL, false otherwise
 }
 
-cpuWebMiner.start(cpuWebMiner.yespower, stratum, true, cpuWebMiner.ALL_THREADS);
+cpuWebMiner.start(cpuWebMiner.ghostrider, stratum, true, cpuWebMiner.ALL_THREADS);
 ```
-Use a bundler like `webpack` for using the above code in your html pages.
-Or if you want to use this library directly in your html pages without using a bundler, the following is a complete example
+Use a bundler like `webpack` for using the above code in your html pages. Or if you want to use this library directly in your html pages without using a bundler, the following is a complete example
 ```html
 <!DOCTYPE html>
 <html>
