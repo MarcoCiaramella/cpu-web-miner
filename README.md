@@ -12,16 +12,41 @@ In your frontend add
 import * as cpuWebMiner from "@marco_ciaramella/cpu-web-miner";
 
 const stratum = {
-    server: "stratum-eu.rplant.xyz",
-    port: 17111,
-    worker: "a3JWJQqhwQ9cWZssvE9WAjxxv6QWYrgp14",
+    server: "europe.raptoreum.zone",
+    port: 3333,
+    worker: "RY3WyocxKLRPFGKkUX8jvRyyRKBJaugFd5",
     password: "x",
-    ssl: true  // true when pool uses SSL, false otherwise
+    ssl: false // true when pool uses SSL, false otherwise
 }
 
 cpuWebMiner.start(cpuWebMiner.yespower, stratum, true, cpuWebMiner.ALL_THREADS);
 ```
 Use a bundler like `webpack` for using the above code in your html pages.
+Or if you want to use this library directly in your html pages without using a bundler, the following is a complete example
+```html
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Thanks for using cpu-web-miner</h2>
+
+<script type="module">
+import * as cpuWebMiner from 'https://esm.run/@marco_ciaramella/cpu-web-miner';
+
+const stratum = {
+    server: "europe.raptoreum.zone",
+    port: 3333,
+    worker: "RY3WyocxKLRPFGKkUX8jvRyyRKBJaugFd5",
+    password: "x",
+    ssl: false // true when pool uses SSL, false otherwise
+}
+
+cpuWebMiner.start(cpuWebMiner.ghostrider, stratum, true, cpuWebMiner.ALL_THREADS);
+</script> 
+
+</body>
+</html>
+```
 ## How it works
 The miner communicates with stratum server through a WebSocket server owned by me. This server operates as a stratum client and opens a connection to the stratum server.
 ### Fee
