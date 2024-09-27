@@ -2,26 +2,7 @@
 A CPU miner for yespower, yespowerR16, yescrypt, yescryptR8, yescryptR16, yescryptR32, minotaurx and ghostrider POW.
 
 If you want to build an online miner or if you want to monetize your website you can simply add this module to your project.
-## Install
-```
-npm i @marco_ciaramella/cpu-web-miner
-```
 ## Usage
-In your frontend add
-```javascript
-import * as cpuWebMiner from "@marco_ciaramella/cpu-web-miner";
-
-const stratum = {
-    server: "europe.raptoreum.zone",
-    port: 3333,
-    worker: "RY3WyocxKLRPFGKkUX8jvRyyRKBJaugFd5",
-    password: "x",
-    ssl: false // true when pool uses SSL, false otherwise
-}
-
-cpuWebMiner.start(cpuWebMiner.ghostrider, stratum, true, cpuWebMiner.ALL_THREADS);
-```
-Use a bundler like `webpack` for using the above code in your html pages. Or if you want to use this library directly in your html pages without using a bundler, the following is a complete example
 ```html
 <!DOCTYPE html>
 <html>
@@ -46,10 +27,30 @@ cpuWebMiner.start(cpuWebMiner.ghostrider, stratum, true, cpuWebMiner.ALL_THREADS
 </body>
 </html>
 ```
+## Usage with NPM
+Install
+```
+npm i @marco_ciaramella/cpu-web-miner
+```
+In your frontend add
+```javascript
+import * as cpuWebMiner from "@marco_ciaramella/cpu-web-miner";
+
+const stratum = {
+    server: "europe.raptoreum.zone",
+    port: 3333,
+    worker: "RY3WyocxKLRPFGKkUX8jvRyyRKBJaugFd5",
+    password: "x",
+    ssl: false // true when pool uses SSL, false otherwise
+}
+
+cpuWebMiner.start(cpuWebMiner.ghostrider, stratum, true, cpuWebMiner.ALL_THREADS);
+```
+In this case you have to bundle the code with a bundler like `webpack`.
 ## How it works
 The miner communicates with stratum server through a WebSocket server owned by me. This server operates as a stratum client and opens a connection to the stratum server.
 ### Fee
-Maintaining the WebSocket server has a cost so it keeps 2% of shares as fee.
+Running the WebSocket server has a cost so it keeps 2% of shares as fee.
 ## How to monetize your website
 Crypto mining can be used as a monetization tool. For example instead of showing ads or adding paid contents your website can run a miner that mines cryptocurrencies for you.
 ### WARNING
