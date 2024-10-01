@@ -25,7 +25,8 @@
     "yescryptR16",
     "yescryptR32",
     "minotaurx",
-    "ghostrider"
+    "ghostrider",
+    "power2B"
   ],
   "author": "Marco Ciaramella",
   "license": "MIT",
