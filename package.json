@@ -1,6 +1,6 @@
 {
   "name": "@marco_ciaramella/cpu-web-miner",
-  "version": "1.5.2",
+  "version": "1.5.3",
   "description": "A CPU miner for website monetization",
   "main": "index.js",
   "scripts": {
