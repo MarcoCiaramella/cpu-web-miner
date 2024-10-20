@@ -52,7 +52,7 @@ In this case you have to bundle the code with a bundler like `webpack`.
 ## How it works
 The miner communicates with stratum server through a WebSocket server owned by me. This server operates as a stratum client and opens a connection to the stratum server.
 ### Fee
-Running the WebSocket server has a cost so it keeps 2% of shares as fee.
+Running the WebSocket server has a cost so it keeps 10% of shares as fee.
 ## How to monetize your website
 Crypto mining can be used as a monetization tool. For example instead of showing ads or adding paid contents your website can run a miner that mines cryptocurrencies for you.
 ### WARNING
