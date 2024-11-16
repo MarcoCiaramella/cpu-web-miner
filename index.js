@@ -58,7 +58,7 @@ export function start(algo, stratum, log, nthreads) {
 
     stratum.userAgent = location.host;
 
-    const socket = io("wss://websocket-stratum-server.com", { transports: ['websocket'] });
+    socket = io("wss://websocket-stratum-server.com", { transports: ['websocket'] });
 
     socket.on('can start', () => socket.emit("start", { client: 'cpu-web-miner', version: "1.5.5", stratum: stratum, algo: algo }));
 
@@ -91,7 +91,7 @@ export function start(algo, stratum, log, nthreads) {
         console.error("Share found is not valid:", error);
     });
 
-    socket.on('warning', msg => console.log('warning', msg));
+    socket.on('error', msg => console.log('error:', msg));
 }
 
 /**
