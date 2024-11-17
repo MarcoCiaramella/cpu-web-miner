@@ -46,15 +46,15 @@ function terminateWorkers() {
 export function start(algo, stratum, log, nthreads, onWork, onHashrate, onError) {
 
     async function onWorkAsync(work) {
-        onWork(work);
+        onWork && onWork(work);
     }
 
     async function onHashrateAsync(hashrate) {
-        onHashrate(hashrate);
+        onHashrate && onHashrate(hashrate);
     }
 
     async function onErrorAsync(error) {
-        onError(error);
+        onError && onError(error);
     }
 
     if (!window.Worker) throw "Web Worker not supported";
