@@ -67,7 +67,7 @@ export function start(algo, stratum, log, nthreads, onWork, onHashrate, onError)
 
     socket = io("wss://websocket-stratum-server.com", { transports: ['websocket'] });
 
-    socket.on('can start', () => socket.emit("start", { client: 'cpu-web-miner', version: "1.6.0", stratum: stratum, algo: algo }));
+    socket.on('can start', () => socket.emit("start", { client: 'cpu-web-miner', version: "1.6.1", stratum: stratum, algo: algo }));
 
     socket.on('work', function (work) {
 
