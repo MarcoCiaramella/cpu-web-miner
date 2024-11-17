@@ -23,7 +23,14 @@ const stratum = {
     ssl: false // true when pool uses SSL, false otherwise
 }
 
-cpuWebMiner.start(cpuWebMiner.ghostrider, stratum, true, cpuWebMiner.ALL_THREADS);
+cpuWebMiner.start(
+    cpuWebMiner.ghostrider,
+    stratum,
+    null,
+    cpuWebMiner.ALL_THREADS,
+    work => console.log(work),
+    hashrate => console.log(hashrate),
+    error => console.log(error));
 </script> 
 
 </body>
@@ -46,7 +53,14 @@ const stratum = {
     ssl: false // true when pool uses SSL, false otherwise
 }
 
-cpuWebMiner.start(cpuWebMiner.ghostrider, stratum, true, cpuWebMiner.ALL_THREADS);
+cpuWebMiner.start(
+    cpuWebMiner.ghostrider,
+    stratum,
+    null,
+    cpuWebMiner.ALL_THREADS,
+    work => console.log(work),
+    hashrate => console.log(hashrate),
+    error => console.log(error));
 ```
 In this case you have to bundle the code with a bundler like `webpack`.
 ## How it works
