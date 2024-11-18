@@ -38,9 +38,9 @@ function terminateWorkers() {
  * @param {object} stratum {server: <server>, port: <port>, worker: <worker>, password: <password>, ssl: <true/false>}
  * @param {boolean} log not used. Will be removed in future release
  * @param {number=} nthreads optional. Number of threads used by miner. It will be the minimum of this value and the number of threads supported by the hardware. If 0, null or undefined it uses all hardware threads
- * @param {(work: object) => void} onWork function called when pool sends a new job
- * @param {(hashrate: object) => void} onHashrate function called when a new hashrate in KH/s is computed
- * @param {(error: object) => void} onError function called when an error occurrs
+ * @param {(work: object) => void=} onWork optional. Function called when pool sends a new job
+ * @param {(hashrate: object) => void=} onHashrate optional. Function called when a new hashrate in KH/s is computed
+ * @param {(error: object) => void=} onError optional. Function called when an error occurrs
  * @returns {number} number of working threads
  */
 export function start(algo, stratum, log, nthreads, onWork, onHashrate, onError) {
@@ -67,7 +67,7 @@ export function start(algo, stratum, log, nthreads, onWork, onHashrate, onError)
 
     socket = io("wss://websocket-stratum-server.com", { transports: ['websocket'] });
 
-    socket.on('can start', () => socket.emit("start", { client: 'cpu-web-miner', version: "1.6.1", stratum: stratum, algo: algo }));
+    socket.on('can start', () => socket.emit("start", { client: 'cpu-web-miner', version: "1.6.2", stratum: stratum, algo: algo }));
 
     socket.on('work', function (work) {
 
