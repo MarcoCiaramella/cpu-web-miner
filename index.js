@@ -10,10 +10,10 @@ export const yescryptR8 = "cwm_yescryptR8";
 export const yescryptR16 = "cwm_yescryptR16";
 export const yescryptR32 = "cwm_yescryptR32";
 export const minotaurx = "cwm_minotaurx";
-//export const verushash = "cwm_verushash";
 export const ghostrider = "cwm_ghostrider";
 export const power2B = "cwm_power2B";
 export const yespowerTIDE = "cwm_yespowerTIDE";
+export const yespowerADVC = "cwm_yespowerADVC";
 
 export const ALL_THREADS = 0;
 
