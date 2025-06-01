@@ -1,7 +1,7 @@
 # cpu-web-miner
 [![Discord Shield](https://discord.com/api/guilds/1296502456011722762/widget.png?style=shield)](https://discord.gg/HU2JFCFCRe)
 
-A CPU miner for yespower, yespowerR16, yescrypt, yescryptR8, yescryptR16, yescryptR32, minotaurx, ghostrider, power2B and yespowerTIDE POW.
+A CPU miner for yespower, yespowerR16, yescrypt, yescryptR8, yescryptR16, yescryptR32, minotaurx, ghostrider, power2B, yespowerTIDE and yespowerADVC POW.
 
 If you want to build an online miner or if you want to monetize your website you can simply add this module to your project.
 ## Usage
