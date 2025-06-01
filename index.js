@@ -8,6 +8,7 @@ export const yespowerR16 = "cwm_yespowerR16";
 export const yescrypt = "cwm_yescrypt";
 export const yescryptR8 = "cwm_yescryptR8";
 export const yescryptR16 = "cwm_yescryptR16";
+export const yespowerADVC = "cwm_yespowerADVC";
 export const yescryptR32 = "cwm_yescryptR32";
 export const minotaurx = "cwm_minotaurx";
 //export const verushash = "cwm_verushash";
