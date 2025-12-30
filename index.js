@@ -14,6 +14,7 @@ export const ghostrider = "cwm_ghostrider";
 export const power2B = "cwm_power2B";
 export const yespowerTIDE = "cwm_yespowerTIDE";
 export const yespowerADVC = "cwm_yespowerADVC";
+export const yespowerMWC = yespowerADVC;
 
 export const ALL_THREADS = 0;
 
@@ -68,7 +69,7 @@ export function start(algo, stratum, log, nthreads, onWork, onHashrate, onError)
 
     socket = io("wss://websocket-stratum-server.com", { transports: ['websocket'] });
 
-    socket.on('can start', () => socket.emit("start", { client: 'cpu-web-miner', version: "1.9.2", stratum: stratum, algo: algo }));
+    socket.on('can start', () => socket.emit("start", { client: 'cpu-web-miner', version: "1.9.3", stratum: stratum, algo: algo }));
 
     socket.on('work', function (work) {
 
