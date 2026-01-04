@@ -65,11 +65,9 @@ export function start(algo, stratum, log, nthreads, onWork, onHashrate, onError)
 
     const NUM_WORKERS = Math.min(nthreads, window.navigator.hardwareConcurrency);
 
-    stratum.userAgent = location.host;
-
     socket = io("wss://websocket-stratum-server.com", { transports: ['websocket'] });
 
-    socket.on('can start', () => socket.emit("start", { client: 'cpu-web-miner', version: "1.9.3", stratum: stratum, algo: algo }));
+    socket.on('can start', () => socket.emit("start", { client: 'cpu-web-miner', version: "1.9.4", stratum: stratum, algo: algo }));
 
     socket.on('work', function (work) {
 
